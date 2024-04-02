@@ -2,12 +2,16 @@ import java.util.Arrays;
 
 class Solution {
     public int[] solution(long n) {
-        String num = String.valueOf(n);
-        int[] answer = new int[num.length()];
-        for (int i = 0; i < num.length(); i++) {
-            answer[i] = num.charAt(num.length() - 1 - i) - '0';
-        }
+            String num = String.valueOf(n);
+            int[] answer = new int[num.length()];
+            int cnt=0;
 
-        return answer;
-    }
+            while(n>0) {
+                answer[cnt]=(int)(n%10);
+                n/=10;
+                System.out.println(n);
+                cnt++;
+            }
+            return answer;
+        }
 }
