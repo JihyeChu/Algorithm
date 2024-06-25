@@ -1,12 +1,10 @@
 class Solution {
     public int solution(int a, int b) {
-        int answer = 0;
-        answer = Integer.parseInt(Integer.toString(a)+Integer.toString(b));
-        if(answer > (2*a*b) || answer == (2*a*b)){
-            return answer;
+        int answer = Integer.parseInt(a+""+b);
+        if(answer < 2*a*b){
+            return 2*a*b;
         }else{
-            answer = 2*a*b;
+            return answer;
         }
-        return answer;
     }
 }
