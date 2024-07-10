@@ -1,16 +1,17 @@
 class Solution {
     public int solution(int[] num_list) {
-        int answer = 0;
-        String even = "";
-        String odd = "";
+        int odd = 0;
+        int even = 0;
+        
         for(int num : num_list){
             if(num%2 == 0){
-                even += Integer.toString(num);
+                even *= 10;
+                even += num;
             }else{
-                odd += Integer.toString(num);
+                odd *= 10;
+                odd += num;
             }
         }
-        answer = Integer.parseInt(even) + Integer.parseInt(odd);
-        return answer;
+        return odd + even;
     }
 }
