@@ -2,30 +2,17 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int l, int r) {
-        List<Integer> result = new ArrayList<>();
-        Queue<Integer> queue = new LinkedList<>();
+        ArrayList<Integer> result = new ArrayList<>();
         
-        queue.offer(5);
-        
-        while(!queue.isEmpty()){
-            int num = queue.poll();
-            
-            if(num >= l && num <= r){
-                result.add(num);
+        for(int i=l; i<=r; i++){
+            String str = String.valueOf(i);
+            str = str.replace("5","").replace("0","");
+            if("".equals(str)){
+                result.add(i);
             }
-            
-            if(num * 10 > r){
-                continue;
-            }
-            
-            queue.offer(num * 10);
-            queue.offer(num * 10 + 5);
         }
+        return result.size() > 0 ? 
+            result.stream().mapToInt(i -> i).toArray() : new int[]{-1};
         
-        if(result.isEmpty()){
-            return new int[]{-1};
-        }
-        
-        return result.stream().mapToInt(i -> i).toArray();
     }
 }
