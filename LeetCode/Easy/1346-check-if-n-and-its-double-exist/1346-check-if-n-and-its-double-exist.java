@@ -1,13 +1,13 @@
-import java.util.HashMap;
+import java.util.HashSet;
 
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
         for(int a : arr){
-            if(map.containsKey(a*2) || (a%2 == 0 && map.containsKey(a/2))){
+            if(set.contains(a*2) || (a%2 == 0 && set.contains(a/2))){
                 return true;
             }
-            map.put(a, a*2);
+            set.add(a);
         }
         return false;
     }
