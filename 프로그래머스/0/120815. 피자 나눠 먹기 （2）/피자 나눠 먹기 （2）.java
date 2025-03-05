@@ -1,13 +1,11 @@
 class Solution {
     public int solution(int n) {
-        int pizza = 6;
-        int count = 1;
-        
-        while(pizza % n != 0){
-            pizza += 6;
-            count++;
-        }
-        
-        return count;
+        int gcd = gcd(6, n);
+        return (6*n) / gcd / 6;
+    }
+    
+    public int gcd(int a, int b){
+        if(b == 0) return a;
+        return gcd(b, a%b);
     }
 }
