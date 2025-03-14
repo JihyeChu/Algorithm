@@ -1,14 +1,9 @@
 class Solution {
     public String solution(String my_string, String letter) {
-        StringBuilder sb = new StringBuilder();
+        String answer = "";
         
-        for(char word : my_string.toCharArray()){
-            if(word == letter.charAt(0)){
-                continue;
-            }
-            sb.append(word);
-        }
+        answer = my_string.replace(letter, "");
         
-        return sb.toString();
+        return answer;
     }
 }
