@@ -10,7 +10,7 @@ class Solution {
             }else if(results.get(results.size()-1) >= arr[i]){
                 results.remove(results.size()-1);
                 i--;
-            }else if(results.get(results.size()-1) < arr[i]){
+            }else {
                 results.add(arr[i]);
             }     
         }
