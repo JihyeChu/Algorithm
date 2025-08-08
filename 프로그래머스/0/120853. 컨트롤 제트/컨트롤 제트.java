@@ -1,15 +1,19 @@
+import java.util.*;
+
 class Solution {
     public int solution(String s) {
         int answer = 0;
-        String[] num = s.split(" "); 
-        
-        for(int i=0; i<num.length; i++){
-            if(num[i].equals("Z")){
-                answer -= Integer.parseInt(num[i-1]);
-                continue;
+        Stack<Integer> stack = new Stack<>();
+
+        for (String w : s.split(" ")) {
+            if (w.equals("Z")) {
+                stack.pop();
+            } else {
+                stack.push(Integer.parseInt(w));
             }
-            answer += Integer.parseInt(num[i]);
-            
+        }
+        for (int i : stack) {
+            answer += i;
         }
         return answer;
     }
