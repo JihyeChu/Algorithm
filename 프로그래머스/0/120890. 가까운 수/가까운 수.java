@@ -2,19 +2,16 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] array, int n) {
-        int answer = 0;
-        
-        int minDiff = Integer.MAX_VALUE;
-        
-        for(int i=0; i<array.length; i++){
-            if(minDiff > Math.abs(array[i] - n)){
-                minDiff = Math.abs(array[i] - n);
-                answer = array[i];
-            }else if(Math.abs(array[i] - n) == minDiff && array[i] < answer){
-                answer = array[i];
+        Arrays.sort(array);
+
+        int min = Math.abs(array[0]-n);
+        int minIdx = 0;
+        for(int i=1; i<array.length; i++)
+            if(Math.abs(array[i]-n) < min) {
+                min = Math.abs(array[i]-n);
+                minIdx = i;
             }
-        }
-        
-        return answer;
+
+        return array[minIdx];
     }
 }
