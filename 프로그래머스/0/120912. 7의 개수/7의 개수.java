@@ -1,16 +1,18 @@
 class Solution {
     public int solution(int[] array) {
         int answer = 0;
+        String str = "";
         
-        for(int arr : array){
-            String a = String.valueOf(arr);
-            for(char c : a.toCharArray()){
-                if(c == '7'){
-                    answer++;
-                }
+        for(int i=0; i<array.length; i++){
+            str += array[i];
+        }
+
+        for(int i=0; i<str.length(); i++){
+            if(str.substring(i, i+1).equals("7")){
+                answer++;
             }
         }
-        
+
         return answer;
     }
 }
