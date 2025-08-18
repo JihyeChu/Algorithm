@@ -1,28 +1,22 @@
 class Solution {
     public int solution(int[][] dots) {
-        int min_x = 257;
-        int max_x = -257;
-        int min_y = 257;
-        int max_y = -257;
-        
-        for(int i=0; i<4; i++){
-            if(min_x > dots[i][0]) {
-                min_x = dots[i][0];
-            }
-            if(max_x < dots[i][0]) {
-                max_x = dots[i][0];
-            }
-        }
+        int topX = dots[0][0];
+        int botX = dots[0][0]; 
+        int topY = dots[0][1]; 
+        int botY = dots[0][1]; 
 
-        for(int i=0; i<4; i++){
-            if(min_y > dots[i][1]) {
-                min_y = dots[i][1];
+        for(int[] x : dots) {
+            if(x[0] >= topX) {
+                topX = x[0];
+            } else {
+                botX = x[0];
             }
-            if(max_y < dots[i][1]) {
-                max_y = dots[i][1];
+            if(x[1] >= topY) {
+                topY = x[1];
+            } else {
+                botY = x[1];
             }
         }
-        
-        return Math.abs(max_x-min_x) * Math.abs(max_y-min_y);
+        return (topX - botX) * (topY - botY);
     }
 }
