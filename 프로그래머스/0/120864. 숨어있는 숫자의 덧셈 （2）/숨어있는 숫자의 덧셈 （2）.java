@@ -1,23 +1,12 @@
 class Solution {
     public int solution(String my_string) {
         int answer = 0;
-        StringBuilder sb = new StringBuilder();
-        
-        for(char my : my_string.toCharArray()){
-            if(Character.isDigit(my)){
-                sb.append(my);
-            }else{
-                if(sb.length() > 0){
-                    answer += Integer.parseInt(sb.toString());
-                    sb.setLength(0);
-                }
+        String[] str = my_string.split("[a-zA-Z]");
+        for(int i=0; i<str.length; i++){
+            if(str[i].length() > 0){
+                answer += Integer.parseInt(str[i]);
             }
         }
-        
-        if(sb.length() > 0){
-            answer += Integer.parseInt(sb.toString());
-        }                
-        
-        return answer;   
+        return answer;
     }
 }
