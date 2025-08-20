@@ -1,18 +1,11 @@
-import java.util.*;
-
 class Solution {
     public int solution(int[] sides) {
         int answer = 0;
         
-        Arrays.sort(sides);
+        int max = Math.max(sides[0], sides[1]); // 11
+        int min = Math.min(sides[0], sides[1]); // 7
 
-        for(int i=sides[1]-sides[0]+1; i<=sides[1]; i++){
-            answer++;
-        }
-        
-        for(int i=sides[1]+1; i<sides[0]+sides[1]; i++){
-            answer++;
-        }
+        answer = min + (min-1);
         
         return answer;
     }
