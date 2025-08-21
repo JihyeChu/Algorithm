@@ -1,14 +1,11 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0;
-        int count = 0;
         
-        while(count < n){
-            answer++;
-            if(String.valueOf(answer).contains("3") || answer%3==0) continue;
-            count++;
+        for(int i=1; i<=n; i++){
+            String str = i + "";
+            if(str.contains("3") || i%3 == 0) n++;
         }
         
-        return answer;
+        return n;
     }
 }
