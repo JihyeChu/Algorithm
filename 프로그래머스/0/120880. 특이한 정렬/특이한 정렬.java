@@ -2,32 +2,18 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] numlist, int n) {
-        int[] answer = new int[numlist.length];
-        Map<Integer, Integer> map = new  LinkedHashMap<>();
+        Integer[] nums = Arrays.stream(numlist).boxed().toArray(Integer[]::new);
         
-        for(int i=0; i<numlist.length; i++){
-            int num = Math.abs(n-numlist[i]);
-            map.put(numlist[i], num);
-        }
-        
-        List<Integer> list = new ArrayList<>(map.keySet());
-        
-        list.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                int dist1 = map.get(o1);
-                int dist2 = map.get(o2);
-                if(dist1 == dist2){
-                    return o2-o1;
-                }
-            	return dist1 - dist2;
+        Arrays.sort(nums, (a, b) -> {
+            int dist1 = Math.abs(a - n);
+            int dist2 = Math.abs(b - n);
+            
+            if(dist1 == dist2){
+                return b - a; // 거리가 같으면 더 큰 수 먼저
             }
+            return dist1 - dist2; // 더 작은 거리가 먼저
         });
         
-        for(int i=0; i<list.size(); i++){
-            answer[i] = list.get(i);
-        }
-            
-        return answer;
+        return Arrays.stream(nums).mapToInt(Integer::intValue).toArray();
     }
 }
