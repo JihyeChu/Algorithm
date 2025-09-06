@@ -1,12 +1,22 @@
 class Solution {
+    char[] arr;
+
     public String solution(String my_string, int[][] queries) {
-        String answer = "";
-        
-        for(int[] query : queries){
-            StringBuilder sb = new StringBuilder(my_string.substring(query[0], query[1]+1));
-            sb.reverse();
-            my_string = my_string.substring(0, query[0]) + sb.toString() + my_string.substring(query[1]+1);
+
+        arr = my_string.toCharArray();
+
+        for (int[] query : queries) {
+            reverse(query[0], query[1]);
         }
-        return my_string;
+
+        return new String(arr);
+    }
+
+    private void reverse(int s, int e) {
+        while (s < e) {
+            char temp = arr[s];
+            arr[s++] = arr[e];
+            arr[e--] = temp;
+        }
     }
 }
