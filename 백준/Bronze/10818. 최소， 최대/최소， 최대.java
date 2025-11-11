@@ -1,20 +1,25 @@
 import java.util.*;
 
-public class Main{
-    
+class Main{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        
         int num = sc.nextInt();
-        int[] arr = new int[num];
+        int[] numList = new int[num]; 
+        int MIN = Integer.MAX_VALUE;
+        int MAX = Integer.MIN_VALUE;
         
         for(int i=0; i<num; i++){
-            arr[i] = sc.nextInt();
+            numList[i] = sc.nextInt();
         }
-        sc.close();
         
-        Arrays.sort(arr);
-        System.out.println(arr[0] + " " + arr[num-1]);
-        
+        for(int i=0; i<num; i++){
+            if(numList[i] > MAX){
+                MAX = numList[i];
+            }
+            if(numList[i] < MIN){
+                MIN = numList[i];
+            }
+        }
+        System.out.print(MIN + " " + MAX);
     }
 }
