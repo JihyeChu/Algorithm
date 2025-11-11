@@ -8,6 +8,5 @@ class Main{
         for(int i=num; i>0; i--){
             System.out.println(i);
         }
-        
     }
 }
